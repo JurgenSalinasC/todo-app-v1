@@ -60,7 +60,7 @@ const addTodo = (description) =>{
 
     if (!description) throw new Error ('description is requied');
 
-    state.todos.push( new todo(description));
+    state.todos.push( new Todo(description));
 
 
 }
