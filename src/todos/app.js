@@ -42,7 +42,8 @@ export const App = (elemnetId) => {
 
 // referencia HTML
 
-const newDescriptionInput = document.querySelector(ElementIDs.NewTodoInput)
+const newDescriptionInput = document.querySelector(ElementIDs.NewTodoInput);
+const todoListUL = document.querySelector(ElementIDs.TodoList);
 
 //Listeners 
 newDescriptionInput.addEventListener('keyup', (event)=>{
@@ -55,6 +56,31 @@ newDescriptionInput.addEventListener('keyup', (event)=>{
     event.target.value = '';
 
 });
+
+todoListUL.addEventListener('click', (event) =>{
+
+    const element = event.target.closest('[data-id]');
+    todoStore.toggleTodo( element.getAttribute('data-id') );
+    displayTodos();
+
+
+})
+
+todoListUL.addEventListener('click', (event) =>{
+    const isDestroyElement = event.target.className === 'destroy';
+    const element = event.target.closest('[data-id]');
+    if(!element || !isDestroyElement) return;
+
+
+    todoStore.deteleTodo(element.getAttribute('data-id'))
+  
+    displayTodos()
+    
+    
+    
+
+
+})
 
 
 

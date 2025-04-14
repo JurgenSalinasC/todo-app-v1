@@ -81,7 +81,7 @@ const toggleTodo = (todoId) =>{
     });
 }
 
-const deteletTodo = (todoId) =>{
+const deteleTodo = (todoId) =>{
 
     state.todos = state.todos.filter( todo => todo.id !== todoId ) ;
 }
@@ -112,7 +112,7 @@ export default {
     loadStore,
     addTodo,
     toggleTodo,
-    deteletTodo,
+    deteleTodo,
     deleteCompleted,
     setFilter,
     getCurrentFilter,
